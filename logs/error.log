@@ -1,0 +1,378 @@
+2026-02-15 22:42:16 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: read ECONNRESET
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: read ECONNRESET"}
+2026-02-17 15:59:03 [error] [auth-service] [RegisterUser] Error: secretOrPrivateKey must be an asymmetric key when using RS256
+    at module.exports [as sign] (/home/sergatoyan/Workspace/auth-service/node_modules/jsonwebtoken/sign.js:130:22)
+    at JwtUtil.generateTokenPair (file:///home/sergatoyan/Workspace/auth-service/src/utils/jwt.util.js:18:29)
+    at AuthService.register (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:52:51)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.registerUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:15:22) {"errorName":"Error","grpcCode":13}
+2026-02-17 16:00:13 [error] [auth-service] [RegisterUser] error: insert into "users" ("email", "is_active", "password_hash", "role", "username") values ($1, $2, $3, $4, $5) returning "id", "email", "username", "role" - duplicate key value violates unique constraint "users_username_unique"
+    at Parser.parseErrorMessage (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/parser.js:285:98)
+    at Parser.handlePacket (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/parser.js:122:29)
+    at Parser.parse (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/parser.js:35:38)
+    at TLSSocket.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/index.js:11:42)
+    at TLSSocket.emit (node:events:508:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:189:23) {"errorName":"error","grpcCode":6}
+2026-02-17 16:08:54 [error] [auth-service] [VerifyEmail] TypeError: Cannot read properties of undefined (reading 'toLowerCase')
+    at hashEmail (file:///home/sergatoyan/Workspace/auth-service/src/redis/redisClient.js:36:71)
+    at Object.getVerificationCode (file:///home/sergatoyan/Workspace/auth-service/src/redis/redisClient.js:80:32)
+    at AuthService.verifyEmail (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:92:39)
+    at AuthController.verifyEmail (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:32:40)
+    at Object.onReceiveHalfClose (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12) {"errorName":"TypeError","grpcCode":13}
+2026-02-17 16:21:46 [error] [auth-service] [VerifyEmail] Error: Verification link expired or invalid
+    at AuthService.verifyEmail (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:89:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verifyEmail (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:32:22) {"errorName":"Error","grpcCode":13}
+2026-02-17 22:56:09 [error] [auth-service] Error: No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50053]
+    at Server.bindAddressList (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:490:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Server.bindPort (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:523:36) {"error":"No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50053]"}
+2026-02-17 23:19:25 [error] [auth-service] Redis connection failed 
+2026-02-19 17:34:04 [error] [auth-service] Redis connection failed 
+2026-02-20 19:35:50 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-20 23:04:15 [error] [auth-service] Error: No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50053]
+    at Server.bindAddressList (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:490:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Server.bindPort (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:523:36) {"error":"No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50053]"}
+2026-02-20 23:04:22 [error] [auth-service] Error: No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50053]
+    at Server.bindAddressList (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:490:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Server.bindPort (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:523:36) {"error":"No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50053]"}
+2026-02-20 23:07:36 [error] [auth-service] [OIDCLogin] Error: Failed to exchange authorization code with Google
+    at OAuthService.oidcLogin (file:///home/sergatoyan/Workspace/auth-service/src/services/oauth.service.js:32:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OAuthController.oidcLogin (file:///home/sergatoyan/Workspace/auth-service/src/controllers/oauth.controller.js:15:22) {"errorName":"Error","grpcCode":13}
+2026-02-20 23:08:01 [error] [auth-service] Error: No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]
+    at Server.bindAddressList (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:490:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Server.bindPort (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:523:36) {"error":"No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]"}
+2026-02-20 23:10:07 [error] [auth-service] [OIDCLogin] Error: Failed to exchange authorization code with Google: invalid_grant — Bad Request
+    at OAuthService.oidcLogin (file:///home/sergatoyan/Workspace/auth-service/src/services/oauth.service.js:33:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OAuthController.oidcLogin (file:///home/sergatoyan/Workspace/auth-service/src/controllers/oauth.controller.js:15:22) {"errorName":"Error","grpcCode":13}
+2026-02-20 23:19:06 [error] [auth-service] Error: No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]
+    at Server.bindAddressList (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:490:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Server.bindPort (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:523:36) {"error":"No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]"}
+2026-02-20 23:19:20 [error] [auth-service] Error: No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]
+    at Server.bindAddressList (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:490:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Server.bindPort (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:523:36) {"error":"No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]"}
+2026-02-20 23:19:25 [error] [auth-service] Error: No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]
+    at Server.bindAddressList (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:490:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Server.bindPort (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:523:36) {"error":"No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]"}
+2026-02-20 23:19:29 [error] [auth-service] Error: No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]
+    at Server.bindAddressList (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:490:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Server.bindPort (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:523:36) {"error":"No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]"}
+2026-02-20 23:19:47 [error] [auth-service] Error: No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]
+    at Server.bindAddressList (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:490:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Server.bindPort (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:523:36) {"error":"No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]"}
+2026-02-20 23:19:53 [error] [auth-service] Error: No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]
+    at Server.bindAddressList (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:490:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Server.bindPort (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:523:36) {"error":"No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]"}
+2026-02-20 23:20:03 [error] [auth-service] Error: No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]
+    at Server.bindAddressList (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:490:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Server.bindPort (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:523:36) {"error":"No address added out of total 1 resolved errors: [listen EADDRINUSE: address already in use 0.0.0.0:50051]"}
+2026-02-20 23:44:17 [error] [auth-service] Redis connection failed 
+2026-02-20 23:44:23 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 00:23:44 [error] [auth-service] Redis connection failed 
+2026-02-21 00:23:53 [error] [auth-service] Redis connection failed 
+2026-02-21 00:24:01 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 00:24:02 [error] [auth-service] Redis connection failed 
+2026-02-21 00:24:09 [error] [auth-service] Redis connection failed 
+2026-02-21 00:24:18 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 00:42:51 [error] [auth-service] Redis connection failed 
+2026-02-21 00:43:03 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 00:43:11 [error] [auth-service] Redis connection failed 
+2026-02-21 00:43:14 [error] [auth-service] Redis connection failed 
+2026-02-21 00:43:23 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:08:59 [error] [auth-service] Redis connection failed 
+2026-02-21 01:09:07 [error] [auth-service] Redis connection failed 
+2026-02-21 01:09:20 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:19:45 [error] [auth-service] Redis connection failed 
+2026-02-21 01:19:53 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:20:59 [error] [auth-service] Redis connection failed 
+2026-02-21 01:21:08 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:22:43 [error] [auth-service] Redis connection failed 
+2026-02-21 01:22:53 [error] [auth-service] Redis connection failed 
+2026-02-21 01:23:01 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:23:08 [error] [auth-service] Redis connection failed 
+2026-02-21 01:23:14 [error] [auth-service] Redis connection failed 
+2026-02-21 01:23:23 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:23:24 [error] [auth-service] Redis connection failed 
+2026-02-21 01:23:33 [error] [auth-service] Redis connection failed 
+2026-02-21 01:23:42 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:23:42 [error] [auth-service] Redis connection failed 
+2026-02-21 01:23:50 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:23:58 [error] [auth-service] Redis connection failed 
+2026-02-21 01:24:07 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:39:02 [error] [auth-service] Redis connection failed 
+2026-02-21 01:39:12 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:40:39 [error] [auth-service] Redis connection failed 
+2026-02-21 01:40:48 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:40:57 [error] [auth-service] Redis connection failed 
+2026-02-21 01:41:08 [error] [auth-service] Redis connection failed 
+2026-02-21 01:41:19 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:41:41 [error] [auth-service] Redis connection failed 
+2026-02-21 01:41:49 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 02:14:11 [error] [auth-service] Redis connection failed 
+2026-02-26 17:08:57 [error] [auth-service] [LoginUser] Error: Timed out after 3000ms
+    at buildError (/home/sergatoyan/Workspace/auth-service/node_modules/opossum/lib/circuit.js:1015:17)
+    at Timeout.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/opossum/lib/circuit.js:736:29)
+    at listOnTimeout (node:internal/timers:608:17)
+    at process.processTimers (node:internal/timers:543:7) {"errorName":"Error","grpcCode":13}
+2026-02-26 17:12:16 [error] [auth-service] [LoginUser] Error: Illegal arguments: string, object
+    at _async (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:252:11)
+    at file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:280:7
+    at new Promise (<anonymous>)
+    at Object.compare (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:279:12)
+    at CryptoUtil.comparePassword (file:///home/sergatoyan/Workspace/auth-service/src/utils/crypto.util.js:15:19)
+    at AuthService.login (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:106:38)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.loginUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:42:22) {"errorName":"Error","grpcCode":13}
+2026-02-26 17:12:56 [error] [auth-service] [LoginUser] Error: Illegal arguments: string, object
+    at _async (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:252:11)
+    at file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:280:7
+    at new Promise (<anonymous>)
+    at Object.compare (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:279:12)
+    at CryptoUtil.comparePassword (file:///home/sergatoyan/Workspace/auth-service/src/utils/crypto.util.js:15:19)
+    at AuthService.login (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:106:38)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.loginUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:41:22) {"errorName":"Error","grpcCode":13}
+2026-02-26 17:14:49 [error] [auth-service] [LoginUser] Error: Illegal arguments: string, object
+    at _async (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:252:11)
+    at file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:280:7
+    at new Promise (<anonymous>)
+    at Object.compare (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:279:12)
+    at CryptoUtil.comparePassword (file:///home/sergatoyan/Workspace/auth-service/src/utils/crypto.util.js:15:19)
+    at AuthService.login (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:107:38)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.loginUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:41:22) {"errorName":"Error","grpcCode":13}
+2026-02-26 17:15:34 [error] [auth-service] [LoginUser] Error: Illegal arguments: string, object
+    at _async (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:252:11)
+    at file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:280:7
+    at new Promise (<anonymous>)
+    at Object.compare (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:279:12)
+    at CryptoUtil.comparePassword (file:///home/sergatoyan/Workspace/auth-service/src/utils/crypto.util.js:15:19)
+    at AuthService.login (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:107:38)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.loginUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:41:22) {"errorName":"Error","grpcCode":13}
+2026-02-26 17:17:57 [error] [auth-service] [LoginUser] InvalidPasswordError: Invalid credentials
+    at AuthService.login (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:109:19)
+    at async AuthController.loginUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:41:22) {"errorName":"InvalidPasswordError","grpcCode":16}
+2026-02-26 17:42:21 [error] [auth-service] [LoginUser] Error: Timed out after 3000ms
+    at buildError (/home/sergatoyan/Workspace/auth-service/node_modules/opossum/lib/circuit.js:1015:17)
+    at Timeout.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/opossum/lib/circuit.js:736:29)
+    at listOnTimeout (node:internal/timers:608:17)
+    at process.processTimers (node:internal/timers:543:7) {"errorName":"Error","grpcCode":13}
+2026-02-26 17:48:48 [error] [auth-service] [RefreshTokens] UnauthorizedError: Invalid or expired refresh token
+    at AuthService.refreshTokens (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:160:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.refreshTokens (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:64:22) {"errorName":"UnauthorizedError","grpcCode":16}
+2026-02-28 15:11:35 [error] [auth-service] [Verify2FA] InvalidPasswordError: Invalid 2FA code
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:450:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:22) {"errorName":"InvalidPasswordError","grpcCode":16}
+2026-02-28 15:12:35 [error] [auth-service] [Verify2FA] InvalidPasswordError: Invalid 2FA code
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:450:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:22) {"errorName":"InvalidPasswordError","grpcCode":16}
+2026-02-28 15:15:48 [error] [auth-service] [Verify2FA] UnauthorizedError: Invalid or expired access token
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:418:19)
+    at AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:40)
+    at Object.onReceiveHalfClose (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"errorName":"UnauthorizedError","grpcCode":16}
+2026-02-28 15:16:39 [error] [auth-service] [Verify2FA] InvalidPasswordError: Invalid 2FA code
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:451:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:22) {"errorName":"InvalidPasswordError","grpcCode":16}
+2026-02-28 15:17:35 [error] [auth-service] [Verify2FA] InvalidPasswordError: Invalid 2FA code
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:452:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:22) {"errorName":"InvalidPasswordError","grpcCode":16}
+2026-02-28 15:22:06 [error] [auth-service] [Verify2FA] UnauthorizedError: Invalid or expired access token
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:418:19)
+    at AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:40)
+    at Object.onReceiveHalfClose (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"errorName":"UnauthorizedError","grpcCode":16}
+2026-02-28 15:24:43 [error] [auth-service] [Verify2FA] InvalidPasswordError: Invalid 2FA code
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:452:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:22) {"errorName":"InvalidPasswordError","grpcCode":16}
+2026-02-28 15:54:15 [error] [auth-service] [Verify2FA] UnauthorizedError: Invalid or expired access token
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:418:19)
+    at AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:40)
+    at Object.onReceiveHalfClose (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"errorName":"UnauthorizedError","grpcCode":16}
+2026-02-28 15:59:18 [error] [auth-service] [RefreshTokens] UnauthorizedError: Invalid or expired refresh token
+    at AuthService.refreshTokens (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:202:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.refreshTokens (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:64:22) {"errorName":"UnauthorizedError","grpcCode":16}
+2026-02-28 15:59:53 [error] [auth-service] [RefreshTokens] UnauthorizedError: Invalid or expired refresh token
+    at AuthService.refreshTokens (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:202:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.refreshTokens (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:64:22) {"errorName":"UnauthorizedError","grpcCode":16}
+2026-03-01 16:33:03 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: read ECONNRESET
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: read ECONNRESET"}
+2026-03-01 16:33:44 [error] [auth-service] [RegisterUser] ConflictError: Username is already in use
+    at AuthService.register (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:32:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.registerUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:17:22) {"errorName":"ConflictError","grpcCode":6}
+2026-03-01 16:33:49 [error] [auth-service] [RegisterUser] error: insert into "users" ("device_fingerprint", "email", "is_active", "password_hash", "role", "username") values ($1, $2, $3, $4, $5, $6) returning "id", "email", "username", "role" - column "device_fingerprint" of relation "users" does not exist
+    at Parser.parseErrorMessage (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/parser.js:285:98)
+    at Parser.handlePacket (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/parser.js:122:29)
+    at Parser.parse (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/parser.js:35:38)
+    at TLSSocket.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/index.js:11:42)
+    at TLSSocket.emit (node:events:508:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:189:23) {"errorName":"error","grpcCode":13}
+2026-03-01 18:36:43 [error] [auth-service] Redis connection failed 
+2026-03-01 18:36:47 [error] [auth-service] Redis connection failed 

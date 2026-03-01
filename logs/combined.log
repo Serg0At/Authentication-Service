@@ -1,0 +1,1107 @@
+2026-02-15 22:31:49 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-15 22:31:49 [info] [auth-service] Auth service started
+2026-02-15 22:42:16 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: read ECONNRESET
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: read ECONNRESET"}
+2026-02-15 23:13:03 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-15 23:13:03 [info] [auth-service] Auth service started
+2026-02-15 23:14:39 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-15 23:14:39 [info] [auth-service] Auth service started
+2026-02-15 23:14:54 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-16 21:44:02 [info] [auth-service] Kafka connected
+2026-02-16 21:44:02 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-16 21:44:02 [info] [auth-service] gRPC server started on 50053
+2026-02-16 21:44:02 [info] [auth-service] Auth service started
+2026-02-16 22:14:43 [info] [auth-service] Kafka connected
+2026-02-17 15:44:39 [info] [auth-service] Kafka connected
+2026-02-17 15:44:39 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 15:44:39 [info] [auth-service] gRPC server started on 50053
+2026-02-17 15:44:39 [info] [auth-service] Auth service started
+2026-02-17 15:59:03 [error] [auth-service] [RegisterUser] Error: secretOrPrivateKey must be an asymmetric key when using RS256
+    at module.exports [as sign] (/home/sergatoyan/Workspace/auth-service/node_modules/jsonwebtoken/sign.js:130:22)
+    at JwtUtil.generateTokenPair (file:///home/sergatoyan/Workspace/auth-service/src/utils/jwt.util.js:18:29)
+    at AuthService.register (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:52:51)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.registerUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:15:22) {"errorName":"Error","grpcCode":13}
+2026-02-17 16:00:08 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 16:00:08 [info] [auth-service] gRPC graceful shutdown completed
+2026-02-17 16:00:09 [info] [auth-service] Kafka connected
+2026-02-17 16:00:09 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 16:00:09 [info] [auth-service] gRPC server started on 50053
+2026-02-17 16:00:09 [info] [auth-service] Auth service started
+2026-02-17 16:00:13 [error] [auth-service] [RegisterUser] error: insert into "users" ("email", "is_active", "password_hash", "role", "username") values ($1, $2, $3, $4, $5) returning "id", "email", "username", "role" - duplicate key value violates unique constraint "users_username_unique"
+    at Parser.parseErrorMessage (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/parser.js:285:98)
+    at Parser.handlePacket (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/parser.js:122:29)
+    at Parser.parse (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/parser.js:35:38)
+    at TLSSocket.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/index.js:11:42)
+    at TLSSocket.emit (node:events:508:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:189:23) {"errorName":"error","grpcCode":6}
+2026-02-17 16:03:58 [info] [auth-service] [RegisterUser] User registered {"userId":"11","email":"serg114454@gmail.com"}
+2026-02-17 16:07:34 [info] [auth-service] Kafka connected
+2026-02-17 16:07:34 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 16:07:34 [info] [auth-service] gRPC server started on 50053
+2026-02-17 16:07:34 [info] [auth-service] Auth service started
+2026-02-17 16:08:54 [error] [auth-service] [VerifyEmail] TypeError: Cannot read properties of undefined (reading 'toLowerCase')
+    at hashEmail (file:///home/sergatoyan/Workspace/auth-service/src/redis/redisClient.js:36:71)
+    at Object.getVerificationCode (file:///home/sergatoyan/Workspace/auth-service/src/redis/redisClient.js:80:32)
+    at AuthService.verifyEmail (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:92:39)
+    at AuthController.verifyEmail (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:32:40)
+    at Object.onReceiveHalfClose (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12) {"errorName":"TypeError","grpcCode":13}
+2026-02-17 16:17:02 [info] [auth-service] Kafka connected
+2026-02-17 16:17:02 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 16:17:02 [info] [auth-service] gRPC server started on 50053
+2026-02-17 16:17:02 [info] [auth-service] Auth service started
+2026-02-17 16:17:10 [info] [auth-service] Kafka connected
+2026-02-17 16:17:10 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 16:17:10 [info] [auth-service] gRPC server started on 50053
+2026-02-17 16:17:10 [info] [auth-service] Auth service started
+2026-02-17 16:17:21 [info] [auth-service] Kafka connected
+2026-02-17 16:17:21 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 16:17:21 [info] [auth-service] gRPC server started on 50053
+2026-02-17 16:17:21 [info] [auth-service] Auth service started
+2026-02-17 16:18:39 [info] [auth-service] Kafka connected
+2026-02-17 16:18:39 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 16:18:39 [info] [auth-service] gRPC server started on 50053
+2026-02-17 16:18:39 [info] [auth-service] Auth service started
+2026-02-17 16:20:57 [info] [auth-service] [RegisterUser] User registered {"userId":"12","email":"serg114454@gmail.com"}
+2026-02-17 16:21:46 [error] [auth-service] [VerifyEmail] Error: Verification link expired or invalid
+    at AuthService.verifyEmail (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:89:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verifyEmail (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:32:22) {"errorName":"Error","grpcCode":13}
+2026-02-17 16:22:52 [info] [auth-service] [VerifyEmail] Email verified {}
+2026-02-17 18:35:09 [info] [auth-service] Kafka connected
+2026-02-17 22:14:45 [info] [auth-service] Kafka connected
+2026-02-17 22:14:45 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:14:45 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:14:45 [info] [auth-service] Auth service started
+2026-02-17 22:36:08 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 22:36:09 [info] [auth-service] Kafka connected
+2026-02-17 22:36:09 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:36:09 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:36:09 [info] [auth-service] Auth service started
+2026-02-17 22:45:42 [info] [auth-service] Kafka connected
+2026-02-17 22:45:42 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:45:42 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:45:42 [info] [auth-service] Auth service started
+2026-02-17 22:45:57 [info] [auth-service] Redis connected
+2026-02-17 22:45:57 [info] [auth-service] Kafka connected
+2026-02-17 22:45:57 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:45:57 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:45:57 [info] [auth-service] Auth service started
+2026-02-17 22:46:06 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 22:46:17 [info] [auth-service] Redis connected
+2026-02-17 22:46:17 [info] [auth-service] Kafka connected
+2026-02-17 22:46:17 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:46:17 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:46:17 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:46:29 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 22:46:30 [info] [auth-service] Redis connected
+2026-02-17 22:46:30 [info] [auth-service] Kafka connected
+2026-02-17 22:46:30 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:46:30 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:46:30 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:49:08 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 22:49:10 [info] [auth-service] Redis connected
+2026-02-17 22:49:10 [info] [auth-service] Kafka connected
+2026-02-17 22:49:10 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:49:10 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:49:10 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:50:34 [info] [auth-service] Redis connected
+2026-02-17 22:50:34 [info] [auth-service] Kafka connected
+2026-02-17 22:50:34 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:50:34 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:50:34 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:50:37 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 22:51:07 [info] [auth-service] Redis connected
+2026-02-17 22:51:07 [info] [auth-service] Kafka connected
+2026-02-17 22:51:08 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:51:08 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:51:08 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:51:10 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 22:51:15 [info] [auth-service] Redis connected
+2026-02-17 22:51:15 [info] [auth-service] Kafka connected
+2026-02-17 22:51:15 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:51:15 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:51:15 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:51:51 [info] [auth-service] Redis connected
+2026-02-17 22:51:51 [info] [auth-service] Kafka connected
+2026-02-17 22:51:51 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:51:51 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:51:51 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:51:53 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 22:51:55 [info] [auth-service] Redis connected
+2026-02-17 22:51:55 [info] [auth-service] Kafka connected
+2026-02-17 22:51:55 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:51:55 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:51:55 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:51:57 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 22:52:14 [info] [auth-service] Redis connected
+2026-02-17 22:52:14 [info] [auth-service] Kafka connected
+2026-02-17 22:52:14 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:52:14 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:52:14 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:54:03 [info] [auth-service] Redis connected
+2026-02-17 22:54:03 [info] [auth-service] Kafka connected
+2026-02-17 22:54:03 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:54:03 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:54:03 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:54:06 [info] [auth-service] Kafka connected
+2026-02-17 22:54:06 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:54:06 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:54:06 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:54:08 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 22:54:09 [info] [auth-service] Kafka connected
+2026-02-17 22:54:09 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:54:09 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:54:09 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:54:20 [info] [auth-service] Redis connected
+2026-02-17 22:54:20 [info] [auth-service] Kafka connected
+2026-02-17 22:54:20 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:54:20 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:54:20 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:54:47 [info] [auth-service] Redis connected
+2026-02-17 22:54:47 [info] [auth-service] Kafka connected
+2026-02-17 22:54:47 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:54:47 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:54:47 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:54:49 [info] [auth-service] Redis connected
+2026-02-17 22:54:49 [info] [auth-service] Kafka connected
+2026-02-17 22:54:49 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:54:49 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:54:49 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:54:58 [info] [auth-service] Redis connected
+2026-02-17 22:54:58 [info] [auth-service] Kafka connected
+2026-02-17 22:54:58 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:54:58 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:54:58 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:55:14 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 22:55:15 [info] [auth-service] Redis connected
+2026-02-17 22:55:15 [info] [auth-service] Kafka connected
+2026-02-17 22:55:15 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:55:15 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:55:15 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:55:23 [info] [auth-service] Redis connected
+2026-02-17 22:55:23 [info] [auth-service] Kafka connected
+2026-02-17 22:55:23 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:55:23 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:55:23 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:55:42 [info] [auth-service] Redis connected
+2026-02-17 22:55:42 [info] [auth-service] Kafka connected
+2026-02-17 22:55:42 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:55:42 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:55:42 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:56:09 [info] [auth-service] Redis connected
+2026-02-17 22:56:09 [info] [auth-service] Kafka connected
+2026-02-17 22:56:09 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:56:26 [info] [auth-service] Redis connected
+2026-02-17 22:56:26 [info] [auth-service] Kafka connected
+2026-02-17 22:56:27 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:56:27 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:56:27 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:56:37 [info] [auth-service] Redis connected
+2026-02-17 22:56:37 [info] [auth-service] Kafka connected
+2026-02-17 22:56:38 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:56:38 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:56:38 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:56:48 [info] [auth-service] Redis connected
+2026-02-17 22:56:48 [info] [auth-service] Kafka connected
+2026-02-17 22:56:48 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:56:48 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:56:48 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:57:02 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 22:57:03 [info] [auth-service] Redis connected
+2026-02-17 22:57:03 [info] [auth-service] Kafka connected
+2026-02-17 22:57:03 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:57:03 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:57:03 [info] [auth-service] ========== AUTH SERVICE READY ==========
+2026-02-17 22:57:25 [info] [auth-service] Redis connected
+2026-02-17 22:57:25 [info] [auth-service] Kafka connected
+2026-02-17 22:57:25 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 22:57:25 [info] [auth-service] gRPC server started on 50053
+2026-02-17 22:57:25 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-17 23:02:40 [info] [auth-service] Redis connected
+2026-02-17 23:02:40 [info] [auth-service] Kafka connected
+2026-02-17 23:02:40 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-17 23:02:41 [info] [auth-service] gRPC server started on 50053
+2026-02-17 23:02:41 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-17 23:04:02 [warn] [auth-service] RabbitMQ connection closed, scheduling reconnect
+2026-02-17 23:04:05 [warn] [auth-service] RabbitMQ reconnect failed, retry #2 in 6000ms {"error":""}
+2026-02-17 23:04:11 [warn] [auth-service] RabbitMQ reconnect failed, retry #3 in 9000ms {"error":""}
+2026-02-17 23:04:20 [warn] [auth-service] RabbitMQ reconnect failed, retry #4 in 12000ms {"error":""}
+2026-02-17 23:04:22 [info] [auth-service] gRPC shutdown signal received
+2026-02-17 23:19:25 [error] [auth-service] Redis connection failed 
+2026-02-19 17:34:04 [error] [auth-service] Redis connection failed 
+2026-02-19 17:36:49 [info] [auth-service] Redis connected
+2026-02-19 17:36:49 [info] [auth-service] Kafka connected
+2026-02-19 17:36:49 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-19 17:36:49 [info] [auth-service] gRPC server started on 50053
+2026-02-19 17:36:49 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-19 19:46:34 [info] [auth-service] Redis connected
+2026-02-20 19:35:42 [info] [auth-service] Redis connected
+2026-02-20 19:35:50 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-20 19:36:13 [info] [auth-service] Redis connected
+2026-02-20 19:36:13 [info] [auth-service] Kafka connected
+2026-02-20 19:36:13 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 19:36:13 [info] [auth-service] gRPC server started on 50053
+2026-02-20 19:36:13 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 19:41:57 [info] [auth-service] Redis connected
+2026-02-20 19:41:57 [info] [auth-service] Kafka connected
+2026-02-20 19:41:57 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 19:41:57 [info] [auth-service] gRPC server started on 50053
+2026-02-20 19:41:57 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 19:42:07 [info] [auth-service] Redis connected
+2026-02-20 19:42:07 [info] [auth-service] Kafka connected
+2026-02-20 19:42:07 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 19:42:07 [info] [auth-service] gRPC server started on 50053
+2026-02-20 19:42:07 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 19:42:47 [info] [auth-service] Redis connected
+2026-02-20 19:42:47 [info] [auth-service] Kafka connected
+2026-02-20 19:42:47 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 19:42:47 [info] [auth-service] gRPC server started on 50053
+2026-02-20 19:42:47 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 19:42:52 [info] [auth-service] Redis connected
+2026-02-20 19:42:52 [info] [auth-service] Kafka connected
+2026-02-20 19:42:52 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 19:42:52 [info] [auth-service] gRPC server started on 50053
+2026-02-20 19:42:52 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 19:43:18 [info] [auth-service] Redis connected
+2026-02-20 19:43:18 [info] [auth-service] Kafka connected
+2026-02-20 19:43:18 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 19:43:18 [info] [auth-service] gRPC server started on 50053
+2026-02-20 19:43:18 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 23:04:15 [info] [auth-service] Redis connected
+2026-02-20 23:04:15 [info] [auth-service] Kafka connected
+2026-02-20 23:04:15 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:04:22 [info] [auth-service] Redis connected
+2026-02-20 23:04:22 [info] [auth-service] Kafka connected
+2026-02-20 23:04:22 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:05:06 [info] [auth-service] Redis connected
+2026-02-20 23:05:06 [info] [auth-service] Kafka connected
+2026-02-20 23:05:06 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:05:06 [info] [auth-service] gRPC server started on 50051
+2026-02-20 23:05:06 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 23:07:36 [error] [auth-service] [OIDCLogin] Error: Failed to exchange authorization code with Google
+    at OAuthService.oidcLogin (file:///home/sergatoyan/Workspace/auth-service/src/services/oauth.service.js:32:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OAuthController.oidcLogin (file:///home/sergatoyan/Workspace/auth-service/src/controllers/oauth.controller.js:15:22) {"errorName":"Error","grpcCode":13}
+2026-02-20 23:08:01 [info] [auth-service] Redis connected
+2026-02-20 23:08:01 [info] [auth-service] Redis connected
+2026-02-20 23:08:01 [info] [auth-service] Kafka connected
+2026-02-20 23:08:01 [info] [auth-service] Kafka connected
+2026-02-20 23:08:01 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:08:01 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:08:01 [info] [auth-service] gRPC server started on 50051
+2026-02-20 23:08:01 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 23:10:07 [error] [auth-service] [OIDCLogin] Error: Failed to exchange authorization code with Google: invalid_grant — Bad Request
+    at OAuthService.oidcLogin (file:///home/sergatoyan/Workspace/auth-service/src/services/oauth.service.js:33:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OAuthController.oidcLogin (file:///home/sergatoyan/Workspace/auth-service/src/controllers/oauth.controller.js:15:22) {"errorName":"Error","grpcCode":13}
+2026-02-20 23:19:06 [info] [auth-service] Redis connected
+2026-02-20 23:19:06 [info] [auth-service] Kafka connected
+2026-02-20 23:19:06 [info] [auth-service] Redis connected
+2026-02-20 23:19:06 [info] [auth-service] Kafka connected
+2026-02-20 23:19:06 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:19:06 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:19:06 [info] [auth-service] gRPC server started on 50051
+2026-02-20 23:19:06 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 23:19:20 [info] [auth-service] Redis connected
+2026-02-20 23:19:20 [info] [auth-service] Kafka connected
+2026-02-20 23:19:20 [info] [auth-service] Redis connected
+2026-02-20 23:19:20 [info] [auth-service] Kafka connected
+2026-02-20 23:19:20 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:19:20 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:19:20 [info] [auth-service] gRPC server started on 50051
+2026-02-20 23:19:20 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 23:19:25 [info] [auth-service] Redis connected
+2026-02-20 23:19:25 [info] [auth-service] Kafka connected
+2026-02-20 23:19:25 [info] [auth-service] Redis connected
+2026-02-20 23:19:25 [info] [auth-service] Kafka connected
+2026-02-20 23:19:25 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:19:25 [info] [auth-service] gRPC server started on 50051
+2026-02-20 23:19:25 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 23:19:25 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:19:29 [info] [auth-service] Redis connected
+2026-02-20 23:19:29 [info] [auth-service] Kafka connected
+2026-02-20 23:19:29 [info] [auth-service] Redis connected
+2026-02-20 23:19:29 [info] [auth-service] Kafka connected
+2026-02-20 23:19:29 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:19:29 [info] [auth-service] gRPC server started on 50051
+2026-02-20 23:19:29 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 23:19:29 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:19:47 [info] [auth-service] Redis connected
+2026-02-20 23:19:47 [info] [auth-service] Kafka connected
+2026-02-20 23:19:47 [info] [auth-service] Redis connected
+2026-02-20 23:19:47 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:19:47 [info] [auth-service] Kafka connected
+2026-02-20 23:19:47 [info] [auth-service] gRPC server started on 50051
+2026-02-20 23:19:47 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 23:19:47 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:19:53 [info] [auth-service] Redis connected
+2026-02-20 23:19:53 [info] [auth-service] Kafka connected
+2026-02-20 23:19:53 [info] [auth-service] Redis connected
+2026-02-20 23:19:53 [info] [auth-service] Kafka connected
+2026-02-20 23:19:53 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:19:53 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:19:53 [info] [auth-service] gRPC server started on 50051
+2026-02-20 23:19:53 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 23:20:03 [info] [auth-service] Redis connected
+2026-02-20 23:20:03 [info] [auth-service] Kafka connected
+2026-02-20 23:20:03 [info] [auth-service] Redis connected
+2026-02-20 23:20:03 [info] [auth-service] Kafka connected
+2026-02-20 23:20:03 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:20:03 [info] [auth-service] gRPC server started on 50051
+2026-02-20 23:20:03 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-20 23:20:03 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-20 23:40:57 [warn] [auth-service] RabbitMQ connection closed, scheduling reconnect
+2026-02-20 23:41:00 [warn] [auth-service] RabbitMQ reconnect failed, retry #2 in 6000ms {"error":""}
+2026-02-20 23:41:06 [warn] [auth-service] RabbitMQ reconnect failed, retry #3 in 9000ms {"error":""}
+2026-02-20 23:41:15 [warn] [auth-service] RabbitMQ reconnect failed, retry #4 in 12000ms {"error":""}
+2026-02-20 23:41:27 [warn] [auth-service] RabbitMQ reconnect failed, retry #5 in 15000ms {"error":""}
+2026-02-20 23:41:42 [warn] [auth-service] RabbitMQ reconnect failed, retry #6 in 18000ms {"error":""}
+2026-02-20 23:42:00 [warn] [auth-service] RabbitMQ reconnect failed, retry #7 in 21000ms {"error":""}
+2026-02-20 23:42:21 [info] [auth-service] gRPC shutdown signal received
+2026-02-20 23:44:17 [error] [auth-service] Redis connection failed 
+2026-02-20 23:44:23 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 00:23:44 [error] [auth-service] Redis connection failed 
+2026-02-21 00:23:53 [error] [auth-service] Redis connection failed 
+2026-02-21 00:24:01 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 00:24:02 [error] [auth-service] Redis connection failed 
+2026-02-21 00:24:09 [error] [auth-service] Redis connection failed 
+2026-02-21 00:24:18 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 00:42:51 [error] [auth-service] Redis connection failed 
+2026-02-21 00:43:03 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 00:43:11 [error] [auth-service] Redis connection failed 
+2026-02-21 00:43:14 [error] [auth-service] Redis connection failed 
+2026-02-21 00:43:23 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:08:59 [error] [auth-service] Redis connection failed 
+2026-02-21 01:09:07 [error] [auth-service] Redis connection failed 
+2026-02-21 01:09:20 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:19:45 [error] [auth-service] Redis connection failed 
+2026-02-21 01:19:53 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:20:59 [error] [auth-service] Redis connection failed 
+2026-02-21 01:21:08 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:22:43 [error] [auth-service] Redis connection failed 
+2026-02-21 01:22:53 [error] [auth-service] Redis connection failed 
+2026-02-21 01:23:01 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:23:08 [error] [auth-service] Redis connection failed 
+2026-02-21 01:23:14 [error] [auth-service] Redis connection failed 
+2026-02-21 01:23:23 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:23:24 [error] [auth-service] Redis connection failed 
+2026-02-21 01:23:33 [error] [auth-service] Redis connection failed 
+2026-02-21 01:23:42 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:23:42 [error] [auth-service] Redis connection failed 
+2026-02-21 01:23:50 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:23:58 [error] [auth-service] Redis connection failed 
+2026-02-21 01:24:07 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:39:02 [error] [auth-service] Redis connection failed 
+2026-02-21 01:39:12 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:40:39 [error] [auth-service] Redis connection failed 
+2026-02-21 01:40:48 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:40:57 [error] [auth-service] Redis connection failed 
+2026-02-21 01:41:08 [error] [auth-service] Redis connection failed 
+2026-02-21 01:41:19 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 01:41:41 [error] [auth-service] Redis connection failed 
+2026-02-21 01:41:49 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: 
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: "}
+2026-02-21 02:14:11 [error] [auth-service] Redis connection failed 
+2026-02-26 16:44:50 [info] [auth-service] Redis connected
+2026-02-26 16:44:50 [info] [auth-service] Kafka connected
+2026-02-26 16:44:50 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 16:44:50 [info] [auth-service] gRPC server started on 50051
+2026-02-26 16:44:50 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:08:57 [error] [auth-service] [LoginUser] Error: Timed out after 3000ms
+    at buildError (/home/sergatoyan/Workspace/auth-service/node_modules/opossum/lib/circuit.js:1015:17)
+    at Timeout.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/opossum/lib/circuit.js:736:29)
+    at listOnTimeout (node:internal/timers:608:17)
+    at process.processTimers (node:internal/timers:543:7) {"errorName":"Error","grpcCode":13}
+2026-02-26 17:11:55 [info] [auth-service] Redis connected
+2026-02-26 17:11:55 [info] [auth-service] Kafka connected
+2026-02-26 17:11:55 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:11:55 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:11:55 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:12:04 [info] [auth-service] Redis connected
+2026-02-26 17:12:04 [info] [auth-service] Kafka connected
+2026-02-26 17:12:05 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:12:05 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:12:05 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:12:16 [error] [auth-service] [LoginUser] Error: Illegal arguments: string, object
+    at _async (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:252:11)
+    at file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:280:7
+    at new Promise (<anonymous>)
+    at Object.compare (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:279:12)
+    at CryptoUtil.comparePassword (file:///home/sergatoyan/Workspace/auth-service/src/utils/crypto.util.js:15:19)
+    at AuthService.login (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:106:38)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.loginUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:42:22) {"errorName":"Error","grpcCode":13}
+2026-02-26 17:12:24 [info] [auth-service] Redis connected
+2026-02-26 17:12:24 [info] [auth-service] Kafka connected
+2026-02-26 17:12:24 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:12:24 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:12:24 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:12:44 [info] [auth-service] Redis connected
+2026-02-26 17:12:44 [info] [auth-service] Kafka connected
+2026-02-26 17:12:44 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:12:44 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:12:44 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:12:49 [info] [auth-service] Redis connected
+2026-02-26 17:12:49 [info] [auth-service] Kafka connected
+2026-02-26 17:12:49 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:12:49 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:12:49 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:12:52 [info] [auth-service] Redis connected
+2026-02-26 17:12:52 [info] [auth-service] Kafka connected
+2026-02-26 17:12:52 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:12:52 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:12:52 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:12:56 [error] [auth-service] [LoginUser] Error: Illegal arguments: string, object
+    at _async (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:252:11)
+    at file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:280:7
+    at new Promise (<anonymous>)
+    at Object.compare (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:279:12)
+    at CryptoUtil.comparePassword (file:///home/sergatoyan/Workspace/auth-service/src/utils/crypto.util.js:15:19)
+    at AuthService.login (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:106:38)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.loginUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:41:22) {"errorName":"Error","grpcCode":13}
+2026-02-26 17:14:38 [info] [auth-service] Redis connected
+2026-02-26 17:14:38 [info] [auth-service] Kafka connected
+2026-02-26 17:14:39 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:14:39 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:14:39 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:14:41 [info] [auth-service] Redis connected
+2026-02-26 17:14:41 [info] [auth-service] Kafka connected
+2026-02-26 17:14:41 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:14:41 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:14:41 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:14:44 [info] [auth-service] Redis connected
+2026-02-26 17:14:44 [info] [auth-service] Kafka connected
+2026-02-26 17:14:44 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:14:44 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:14:44 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:14:49 [error] [auth-service] [LoginUser] Error: Illegal arguments: string, object
+    at _async (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:252:11)
+    at file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:280:7
+    at new Promise (<anonymous>)
+    at Object.compare (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:279:12)
+    at CryptoUtil.comparePassword (file:///home/sergatoyan/Workspace/auth-service/src/utils/crypto.util.js:15:19)
+    at AuthService.login (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:107:38)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.loginUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:41:22) {"errorName":"Error","grpcCode":13}
+2026-02-26 17:15:09 [info] [auth-service] Redis connected
+2026-02-26 17:15:09 [info] [auth-service] Kafka connected
+2026-02-26 17:15:09 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:15:09 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:15:09 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:15:11 [info] [auth-service] Redis connected
+2026-02-26 17:15:11 [info] [auth-service] Kafka connected
+2026-02-26 17:15:11 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:15:11 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:15:11 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:15:34 [error] [auth-service] [LoginUser] Error: Illegal arguments: string, object
+    at _async (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:252:11)
+    at file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:280:7
+    at new Promise (<anonymous>)
+    at Object.compare (file:///home/sergatoyan/Workspace/auth-service/node_modules/bcryptjs/index.js:279:12)
+    at CryptoUtil.comparePassword (file:///home/sergatoyan/Workspace/auth-service/src/utils/crypto.util.js:15:19)
+    at AuthService.login (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:107:38)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.loginUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:41:22) {"errorName":"Error","grpcCode":13}
+2026-02-26 17:15:44 [info] [auth-service] Redis connected
+2026-02-26 17:15:44 [info] [auth-service] Kafka connected
+2026-02-26 17:15:44 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:15:44 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:15:44 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:17:31 [info] [auth-service] Redis connected
+2026-02-26 17:17:31 [info] [auth-service] Kafka connected
+2026-02-26 17:17:31 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:17:31 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:17:31 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:17:41 [info] [auth-service] Redis connected
+2026-02-26 17:17:41 [info] [auth-service] Kafka connected
+2026-02-26 17:17:41 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:17:41 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:17:41 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:17:45 [info] [auth-service] Redis connected
+2026-02-26 17:17:45 [info] [auth-service] Kafka connected
+2026-02-26 17:17:45 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:17:45 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:17:45 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:17:50 [info] [auth-service] [LoginUser] User authenticated {"userId":"12"}
+2026-02-26 17:17:57 [error] [auth-service] [LoginUser] InvalidPasswordError: Invalid credentials
+    at AuthService.login (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:109:19)
+    at async AuthController.loginUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:41:22) {"errorName":"InvalidPasswordError","grpcCode":16}
+2026-02-26 17:21:06 [info] [auth-service] Redis connected
+2026-02-26 17:21:06 [info] [auth-service] Kafka connected
+2026-02-26 17:21:06 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:21:06 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:21:06 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:21:11 [info] [auth-service] Redis connected
+2026-02-26 17:21:11 [info] [auth-service] Kafka connected
+2026-02-26 17:21:11 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:21:11 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:21:11 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:22:18 [info] [auth-service] Redis connected
+2026-02-26 17:22:18 [info] [auth-service] Kafka connected
+2026-02-26 17:22:18 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:22:18 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:22:18 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:22:20 [info] [auth-service] Redis connected
+2026-02-26 17:22:20 [info] [auth-service] Kafka connected
+2026-02-26 17:22:20 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:22:20 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:22:20 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:22:22 [info] [auth-service] Redis connected
+2026-02-26 17:22:22 [info] [auth-service] Kafka connected
+2026-02-26 17:22:22 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:22:22 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:22:22 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:22:26 [info] [auth-service] Redis connected
+2026-02-26 17:22:26 [info] [auth-service] Kafka connected
+2026-02-26 17:22:26 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:22:26 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:22:26 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:25:37 [info] [auth-service] Redis connected
+2026-02-26 17:25:37 [info] [auth-service] Kafka connected
+2026-02-26 17:25:37 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:25:37 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:25:37 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:29:43 [info] [auth-service] Redis connected
+2026-02-26 17:42:13 [info] [auth-service] Redis connected
+2026-02-26 17:42:13 [info] [auth-service] Kafka connected
+2026-02-26 17:42:13 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:42:13 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:42:13 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:42:21 [error] [auth-service] [LoginUser] Error: Timed out after 3000ms
+    at buildError (/home/sergatoyan/Workspace/auth-service/node_modules/opossum/lib/circuit.js:1015:17)
+    at Timeout.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/opossum/lib/circuit.js:736:29)
+    at listOnTimeout (node:internal/timers:608:17)
+    at process.processTimers (node:internal/timers:543:7) {"errorName":"Error","grpcCode":13}
+2026-02-26 17:42:26 [info] [auth-service] [LoginUser] User authenticated {"userId":"12"}
+2026-02-26 17:44:00 [info] [auth-service] Redis connected
+2026-02-26 17:44:00 [info] [auth-service] Kafka connected
+2026-02-26 17:44:00 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:44:00 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:44:00 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:44:03 [info] [auth-service] Redis connected
+2026-02-26 17:44:03 [info] [auth-service] Kafka connected
+2026-02-26 17:44:03 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:44:03 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:44:03 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:44:08 [info] [auth-service] Redis connected
+2026-02-26 17:44:08 [info] [auth-service] Kafka connected
+2026-02-26 17:44:08 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 17:44:08 [info] [auth-service] gRPC server started on 50051
+2026-02-26 17:44:08 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 17:44:40 [warn] [auth-service] [OIDCLogin] Unsupported provider: consectetur {"grpcCode":3}
+2026-02-26 17:48:34 [info] [auth-service] [RefreshTokens] Tokens refreshed {}
+2026-02-26 17:48:48 [error] [auth-service] [RefreshTokens] UnauthorizedError: Invalid or expired refresh token
+    at AuthService.refreshTokens (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:160:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.refreshTokens (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:64:22) {"errorName":"UnauthorizedError","grpcCode":16}
+2026-02-26 18:01:13 [info] [auth-service] Redis connected
+2026-02-26 18:01:13 [info] [auth-service] Kafka connected
+2026-02-26 18:01:13 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 18:01:13 [info] [auth-service] gRPC server started on 50051
+2026-02-26 18:01:13 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 18:07:18 [info] [auth-service] Redis connected
+2026-02-26 18:07:18 [info] [auth-service] Kafka connected
+2026-02-26 18:07:18 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 18:07:18 [info] [auth-service] gRPC server started on 50051
+2026-02-26 18:07:18 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 18:07:24 [info] [auth-service] Redis connected
+2026-02-26 18:07:24 [info] [auth-service] Kafka connected
+2026-02-26 18:07:24 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 18:07:24 [info] [auth-service] gRPC server started on 50051
+2026-02-26 18:07:24 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 18:07:34 [info] [auth-service] Redis connected
+2026-02-26 18:07:34 [info] [auth-service] Kafka connected
+2026-02-26 18:07:34 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-26 18:07:34 [info] [auth-service] gRPC server started on 50051
+2026-02-26 18:07:34 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-26 18:10:20 [info] [auth-service] Redis connected
+2026-02-27 00:08:56 [info] [auth-service] Redis connected
+2026-02-27 00:08:56 [info] [auth-service] Kafka connected
+2026-02-27 00:08:56 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:08:56 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:08:56 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:20:11 [info] [auth-service] [LoginUser] User authenticated {"userId":"12"}
+2026-02-27 00:36:31 [info] [auth-service] Redis connected
+2026-02-27 00:36:31 [info] [auth-service] Kafka connected
+2026-02-27 00:36:31 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:36:31 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:36:31 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:36:35 [info] [auth-service] Redis connected
+2026-02-27 00:36:35 [info] [auth-service] Kafka connected
+2026-02-27 00:36:35 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:36:35 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:36:35 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:36:38 [info] [auth-service] Redis connected
+2026-02-27 00:36:38 [info] [auth-service] Kafka connected
+2026-02-27 00:36:38 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:36:38 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:36:38 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:36:39 [info] [auth-service] Redis connected
+2026-02-27 00:36:39 [info] [auth-service] Kafka connected
+2026-02-27 00:36:39 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:36:39 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:36:39 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:37:26 [info] [auth-service] Redis connected
+2026-02-27 00:37:26 [info] [auth-service] Kafka connected
+2026-02-27 00:37:26 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:37:26 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:37:26 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:39:02 [info] [auth-service] gRPC shutdown signal received
+2026-02-27 00:39:22 [info] [auth-service] Redis connected
+2026-02-27 00:39:22 [info] [auth-service] Kafka connected
+2026-02-27 00:39:22 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:39:22 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:39:22 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:41:47 [info] [auth-service] Redis connected
+2026-02-27 00:41:47 [info] [auth-service] Kafka connected
+2026-02-27 00:41:47 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:41:47 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:41:47 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:42:14 [info] [auth-service] Redis connected
+2026-02-27 00:42:14 [info] [auth-service] Kafka connected
+2026-02-27 00:42:14 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:42:14 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:42:14 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:44:23 [info] [auth-service] Redis connected
+2026-02-27 00:44:23 [info] [auth-service] Kafka connected
+2026-02-27 00:44:23 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:44:23 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:44:23 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:44:25 [info] [auth-service] Redis connected
+2026-02-27 00:44:25 [info] [auth-service] Kafka connected
+2026-02-27 00:44:25 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:44:25 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:44:25 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:49:55 [info] [auth-service] Redis connected
+2026-02-27 00:49:55 [info] [auth-service] Kafka connected
+2026-02-27 00:49:55 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:49:55 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:49:55 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:49:56 [info] [auth-service] Redis connected
+2026-02-27 00:49:56 [info] [auth-service] Kafka connected
+2026-02-27 00:49:56 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:49:56 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:49:56 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:50:12 [info] [auth-service] Redis connected
+2026-02-27 00:50:12 [info] [auth-service] Kafka connected
+2026-02-27 00:50:12 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:50:12 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:50:12 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:50:22 [info] [auth-service] Redis connected
+2026-02-27 00:50:22 [info] [auth-service] Kafka connected
+2026-02-27 00:50:22 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:50:22 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:50:22 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:50:45 [info] [auth-service] Redis connected
+2026-02-27 00:50:45 [info] [auth-service] Kafka connected
+2026-02-27 00:50:45 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:50:45 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:50:45 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:51:04 [info] [auth-service] Redis connected
+2026-02-27 00:51:04 [info] [auth-service] Kafka connected
+2026-02-27 00:51:04 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:51:04 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:51:04 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 00:51:23 [info] [auth-service] Redis connected
+2026-02-27 00:51:23 [info] [auth-service] Kafka connected
+2026-02-27 00:51:23 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 00:51:23 [info] [auth-service] gRPC server started on 50051
+2026-02-27 00:51:23 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 01:01:20 [info] [auth-service] Redis connected
+2026-02-27 01:01:20 [info] [auth-service] Kafka connected
+2026-02-27 01:01:20 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 01:01:20 [info] [auth-service] gRPC server started on 50051
+2026-02-27 01:01:20 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 01:01:26 [info] [auth-service] Redis connected
+2026-02-27 01:01:26 [info] [auth-service] Kafka connected
+2026-02-27 01:01:26 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 01:01:26 [info] [auth-service] gRPC server started on 50051
+2026-02-27 01:01:26 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 01:01:36 [info] [auth-service] 154254
+2026-02-27 01:01:36 [info] [auth-service] [ForgotPassword] Request completed successfully {"email":"serg114454@gmail.com"}
+2026-02-27 01:18:07 [info] [auth-service] Redis connected
+2026-02-27 01:18:07 [info] [auth-service] Kafka connected
+2026-02-27 01:18:07 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 01:18:07 [info] [auth-service] gRPC server started on 50051
+2026-02-27 01:18:07 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 01:18:52 [info] [auth-service] Redis connected
+2026-02-27 16:25:31 [info] [auth-service] Redis connected
+2026-02-27 16:25:31 [info] [auth-service] Kafka connected
+2026-02-27 16:25:31 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 16:25:31 [info] [auth-service] gRPC server started on 50051
+2026-02-27 16:25:31 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 16:25:42 [warn] [auth-service] 984271
+2026-02-27 16:25:42 [info] [auth-service] [ForgotPassword] Request completed successfully {"email":"serg114454@gmail.com"}
+2026-02-27 16:26:36 [info] [auth-service] [VerifyResetCode] Request completed successfully
+2026-02-27 16:28:26 [info] [auth-service] [ResetPassword] Password changed {}
+2026-02-27 16:28:36 [info] [auth-service] Redis connected
+2026-02-27 16:28:36 [info] [auth-service] Kafka connected
+2026-02-27 16:28:36 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 16:28:36 [info] [auth-service] gRPC server started on 50051
+2026-02-27 16:28:36 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 16:41:30 [info] [auth-service] Redis connected
+2026-02-27 16:41:30 [info] [auth-service] Kafka connected
+2026-02-27 16:41:31 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 16:41:31 [info] [auth-service] gRPC server started on 50051
+2026-02-27 16:41:31 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 16:42:02 [info] [auth-service] Redis connected
+2026-02-27 16:42:02 [info] [auth-service] Kafka connected
+2026-02-27 16:42:02 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 16:42:02 [info] [auth-service] gRPC server started on 50051
+2026-02-27 16:42:02 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 16:42:29 [info] [auth-service] Redis connected
+2026-02-27 16:42:29 [info] [auth-service] Kafka connected
+2026-02-27 16:42:29 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 16:42:29 [info] [auth-service] gRPC server started on 50051
+2026-02-27 16:42:29 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 16:45:41 [info] [auth-service] Redis connected
+2026-02-27 16:45:41 [info] [auth-service] Kafka connected
+2026-02-27 16:45:41 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-27 16:45:41 [info] [auth-service] gRPC server started on 50051
+2026-02-27 16:45:41 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-27 17:46:08 [info] [auth-service] Redis connected
+2026-02-28 15:08:47 [info] [auth-service] Redis connected
+2026-02-28 15:08:47 [info] [auth-service] Kafka connected
+2026-02-28 15:08:48 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-28 15:08:48 [info] [auth-service] gRPC server started on 50051
+2026-02-28 15:08:48 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-28 15:09:01 [info] [auth-service] gRPC shutdown signal received
+2026-02-28 15:09:01 [info] [auth-service] gRPC graceful shutdown completed
+2026-02-28 15:09:02 [info] [auth-service] Redis connected
+2026-02-28 15:09:02 [info] [auth-service] Kafka connected
+2026-02-28 15:09:03 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-28 15:09:03 [info] [auth-service] gRPC server started on 50051
+2026-02-28 15:09:03 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-28 15:09:08 [info] [auth-service] [LoginUser] User authenticated {"userId":"12"}
+2026-02-28 15:10:04 [info] [auth-service] [Setup2FA] 2FA setup completed {}
+2026-02-28 15:11:35 [error] [auth-service] [Verify2FA] InvalidPasswordError: Invalid 2FA code
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:450:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:22) {"errorName":"InvalidPasswordError","grpcCode":16}
+2026-02-28 15:12:21 [warn] [auth-service] [Verify2FA] "code" length must be 6 characters long; Code must be a 6-digit number {"grpcCode":3}
+2026-02-28 15:12:35 [error] [auth-service] [Verify2FA] InvalidPasswordError: Invalid 2FA code
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:450:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:22) {"errorName":"InvalidPasswordError","grpcCode":16}
+2026-02-28 15:13:52 [info] [auth-service] Redis connected
+2026-02-28 15:13:52 [info] [auth-service] Kafka connected
+2026-02-28 15:13:52 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-28 15:13:52 [info] [auth-service] gRPC server started on 50051
+2026-02-28 15:13:52 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-28 15:15:14 [info] [auth-service] Redis connected
+2026-02-28 15:15:14 [info] [auth-service] Kafka connected
+2026-02-28 15:15:14 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-28 15:15:14 [info] [auth-service] gRPC server started on 50051
+2026-02-28 15:15:14 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-28 15:15:48 [error] [auth-service] [Verify2FA] UnauthorizedError: Invalid or expired access token
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:418:19)
+    at AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:40)
+    at Object.onReceiveHalfClose (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"errorName":"UnauthorizedError","grpcCode":16}
+2026-02-28 15:16:12 [info] [auth-service] [LoginUser] User authenticated {"userId":"12"}
+2026-02-28 15:16:39 [error] [auth-service] [Verify2FA] InvalidPasswordError: Invalid 2FA code
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:451:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:22) {"errorName":"InvalidPasswordError","grpcCode":16}
+2026-02-28 15:17:10 [info] [auth-service] Redis connected
+2026-02-28 15:17:10 [info] [auth-service] Kafka connected
+2026-02-28 15:17:10 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-28 15:17:10 [info] [auth-service] gRPC server started on 50051
+2026-02-28 15:17:10 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-28 15:17:18 [info] [auth-service] gRPC shutdown signal received
+2026-02-28 15:17:20 [info] [auth-service] Redis connected
+2026-02-28 15:17:20 [info] [auth-service] Kafka connected
+2026-02-28 15:17:20 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-28 15:17:20 [info] [auth-service] gRPC server started on 50051
+2026-02-28 15:17:20 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-28 15:17:35 [warn] [auth-service] 2FA debug {"decryptedSecret":"IFJVCSC2HQIBQHLA","code":"224787","generatedCode":"176402"}
+2026-02-28 15:17:35 [error] [auth-service] [Verify2FA] InvalidPasswordError: Invalid 2FA code
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:452:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:22) {"errorName":"InvalidPasswordError","grpcCode":16}
+2026-02-28 15:18:16 [warn] [auth-service] 2FA debug {"decryptedSecret":"IFJVCSC2HQIBQHLA","code":"f2ef0f69","generatedCode":"092761"}
+2026-02-28 15:18:16 [info] [auth-service] [Verify2FA] 2FA verified {}
+2026-02-28 15:19:51 [info] [auth-service] [LoginUser] User authenticated {"userId":"12"}
+2026-02-28 15:20:31 [info] [auth-service] [LoginUser] User authenticated {"userId":"12"}
+2026-02-28 15:21:08 [info] [auth-service] [Setup2FA] 2FA setup completed {}
+2026-02-28 15:22:06 [error] [auth-service] [Verify2FA] UnauthorizedError: Invalid or expired access token
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:418:19)
+    at AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:40)
+    at Object.onReceiveHalfClose (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"errorName":"UnauthorizedError","grpcCode":16}
+2026-02-28 15:22:55 [warn] [auth-service] 2FA debug {"decryptedSecret":"CV6S2LYQCQODGHIC","code":"618157","generatedCode":"602098"}
+2026-02-28 15:22:56 [info] [auth-service] [Verify2FA] 2FA verified {}
+2026-02-28 15:24:34 [warn] [auth-service] 2FA debug {"decryptedSecret":"CV6S2LYQCQODGHIC","code":"849062","generatedCode":"849062"}
+2026-02-28 15:24:34 [info] [auth-service] [Verify2FA] 2FA verified {}
+2026-02-28 15:24:43 [warn] [auth-service] 2FA debug {"decryptedSecret":"CV6S2LYQCQODGHIC","code":"454564","generatedCode":"849062"}
+2026-02-28 15:24:43 [error] [auth-service] [Verify2FA] InvalidPasswordError: Invalid 2FA code
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:452:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:22) {"errorName":"InvalidPasswordError","grpcCode":16}
+2026-02-28 15:26:43 [info] [auth-service] Redis connected
+2026-02-28 15:26:43 [info] [auth-service] Kafka connected
+2026-02-28 15:26:43 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-28 15:26:43 [info] [auth-service] gRPC server started on 50051
+2026-02-28 15:26:43 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-28 15:26:51 [info] [auth-service] Redis connected
+2026-02-28 15:26:51 [info] [auth-service] Kafka connected
+2026-02-28 15:26:51 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-28 15:26:51 [info] [auth-service] gRPC server started on 50051
+2026-02-28 15:26:51 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-28 15:27:11 [info] [auth-service] Redis connected
+2026-02-28 15:27:11 [info] [auth-service] Kafka connected
+2026-02-28 15:27:11 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-28 15:27:11 [info] [auth-service] gRPC server started on 50051
+2026-02-28 15:27:11 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-28 15:27:24 [info] [auth-service] Redis connected
+2026-02-28 15:27:24 [info] [auth-service] Kafka connected
+2026-02-28 15:27:24 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-28 15:27:24 [info] [auth-service] gRPC server started on 50051
+2026-02-28 15:27:24 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-28 15:27:59 [info] [auth-service] [LoginUser] User authenticated {"userId":"12"}
+2026-02-28 15:28:14 [info] [auth-service] [LoginUser] User authenticated {"userId":"12"}
+2026-02-28 15:41:43 [info] [auth-service] [LoginUser] User authenticated {"userId":"12"}
+2026-02-28 15:43:09 [info] [auth-service] [Verify2FA] 2FA verified {}
+2026-02-28 15:51:28 [info] [auth-service] [LoginUser] User authenticated {"userId":"12"}
+2026-02-28 15:54:15 [error] [auth-service] [Verify2FA] UnauthorizedError: Invalid or expired access token
+    at AuthService.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:418:19)
+    at AuthController.verify2FA (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:180:40)
+    at Object.onReceiveHalfClose (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"errorName":"UnauthorizedError","grpcCode":16}
+2026-02-28 15:54:35 [info] [auth-service] [LoginUser] User authenticated {"userId":"12"}
+2026-02-28 15:55:18 [info] [auth-service] [Verify2FA] 2FA verified {}
+2026-02-28 15:55:44 [info] [auth-service] gRPC shutdown signal received
+2026-02-28 15:55:44 [info] [auth-service] gRPC graceful shutdown completed
+2026-02-28 15:55:45 [info] [auth-service] Redis connected
+2026-02-28 15:55:45 [info] [auth-service] Kafka connected
+2026-02-28 15:55:45 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-28 15:55:45 [info] [auth-service] gRPC server started on 50051
+2026-02-28 15:55:45 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-28 15:55:55 [info] [auth-service] [Verify2FA] 2FA verified {}
+2026-02-28 15:56:45 [info] [auth-service] gRPC shutdown signal received
+2026-02-28 15:56:45 [info] [auth-service] gRPC graceful shutdown completed
+2026-02-28 15:56:48 [info] [auth-service] Redis connected
+2026-02-28 15:56:48 [info] [auth-service] Kafka connected
+2026-02-28 15:56:48 [info] [auth-service] RabbitMQ connected, topology ready
+2026-02-28 15:56:48 [info] [auth-service] gRPC server started on 50051
+2026-02-28 15:56:48 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-02-28 15:57:05 [info] [auth-service] [Verify2FA] 2FA verified {}
+2026-02-28 15:59:14 [info] [auth-service] [RefreshTokens] Tokens refreshed {}
+2026-02-28 15:59:18 [error] [auth-service] [RefreshTokens] UnauthorizedError: Invalid or expired refresh token
+    at AuthService.refreshTokens (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:202:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.refreshTokens (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:64:22) {"errorName":"UnauthorizedError","grpcCode":16}
+2026-02-28 15:59:53 [error] [auth-service] [RefreshTokens] UnauthorizedError: Invalid or expired refresh token
+    at AuthService.refreshTokens (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:202:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.refreshTokens (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:64:22) {"errorName":"UnauthorizedError","grpcCode":16}
+2026-02-28 16:00:25 [info] [auth-service] [RefreshTokens] Tokens refreshed {}
+2026-02-28 16:34:47 [info] [auth-service] Redis connected
+2026-03-01 16:32:47 [info] [auth-service] Redis connected
+2026-03-01 16:32:53 [info] [auth-service] Redis connected
+2026-03-01 16:33:03 [error] [auth-service] KafkaJSNonRetriableError
+  Caused by: KafkaJSConnectionError: Connection error: read ECONNRESET
+    at Socket.onError (/home/sergatoyan/Workspace/auth-service/node_modules/kafkajs/src/network/connection.js:210:23)
+    at Socket.emit (node:events:508:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {"error":"Connection error: read ECONNRESET"}
+2026-03-01 16:33:26 [info] [auth-service] Redis connected
+2026-03-01 16:33:26 [info] [auth-service] Kafka connected
+2026-03-01 16:33:26 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-01 16:33:26 [info] [auth-service] gRPC server started on 50051
+2026-03-01 16:33:26 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-01 16:33:44 [error] [auth-service] [RegisterUser] ConflictError: Username is already in use
+    at AuthService.register (file:///home/sergatoyan/Workspace/auth-service/src/services/auth.service.js:32:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.registerUser (file:///home/sergatoyan/Workspace/auth-service/src/controllers/auth.controller.js:17:22) {"errorName":"ConflictError","grpcCode":6}
+2026-03-01 16:33:49 [error] [auth-service] [RegisterUser] error: insert into "users" ("device_fingerprint", "email", "is_active", "password_hash", "role", "username") values ($1, $2, $3, $4, $5, $6) returning "id", "email", "username", "role" - column "device_fingerprint" of relation "users" does not exist
+    at Parser.parseErrorMessage (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/parser.js:285:98)
+    at Parser.handlePacket (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/parser.js:122:29)
+    at Parser.parse (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/parser.js:35:38)
+    at TLSSocket.<anonymous> (/home/sergatoyan/Workspace/auth-service/node_modules/pg-protocol/dist/index.js:11:42)
+    at TLSSocket.emit (node:events:508:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:189:23) {"errorName":"error","grpcCode":13}
+2026-03-01 16:34:37 [info] [auth-service] gRPC shutdown signal received
+2026-03-01 16:34:37 [info] [auth-service] gRPC graceful shutdown completed
+2026-03-01 16:35:20 [info] [auth-service] Redis connected
+2026-03-01 16:35:20 [info] [auth-service] Kafka connected
+2026-03-01 16:35:20 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-01 16:35:20 [info] [auth-service] gRPC server started on 50051
+2026-03-01 16:35:20 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-01 16:35:28 [info] [auth-service] [RegisterUser] User registered {"userId":"1","email":"serg114454@gmail.com"}
+2026-03-01 16:36:54 [info] [auth-service] Redis connected
+2026-03-01 16:36:54 [info] [auth-service] Kafka connected
+2026-03-01 16:36:54 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-01 16:36:54 [info] [auth-service] gRPC server started on 50051
+2026-03-01 16:36:54 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-01 16:37:41 [info] [auth-service] Redis connected
+2026-03-01 16:37:41 [info] [auth-service] Kafka connected
+2026-03-01 16:37:41 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-01 16:37:41 [info] [auth-service] gRPC server started on 50051
+2026-03-01 16:37:41 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-01 16:38:03 [info] [auth-service] Redis connected
+2026-03-01 16:38:03 [info] [auth-service] Kafka connected
+2026-03-01 16:38:03 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-01 16:38:03 [info] [auth-service] gRPC server started on 50051
+2026-03-01 16:38:03 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-01 16:38:24 [info] [auth-service] Redis connected
+2026-03-01 16:38:24 [info] [auth-service] Kafka connected
+2026-03-01 16:38:24 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-01 16:38:24 [info] [auth-service] gRPC server started on 50051
+2026-03-01 16:38:24 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-01 16:38:53 [info] [auth-service] Redis connected
+2026-03-01 16:38:53 [info] [auth-service] Kafka connected
+2026-03-01 16:38:53 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-01 16:38:53 [info] [auth-service] gRPC server started on 50051
+2026-03-01 16:38:53 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-01 16:39:15 [info] [auth-service] Redis connected
+2026-03-01 16:39:15 [info] [auth-service] Kafka connected
+2026-03-01 16:39:15 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-01 16:39:15 [info] [auth-service] gRPC server started on 50051
+2026-03-01 16:39:15 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-01 16:54:53 [warn] [auth-service] RabbitMQ connection closed, scheduling reconnect
+2026-03-01 16:54:56 [warn] [auth-service] RabbitMQ reconnect failed, retry #2 in 6000ms {"error":""}
+2026-03-01 16:55:02 [info] [auth-service] gRPC shutdown signal received
+2026-03-01 18:36:43 [error] [auth-service] Redis connection failed 
+2026-03-01 18:36:47 [error] [auth-service] Redis connection failed 
