@@ -95,4 +95,10 @@ export default class AuthModel {
       .where({ user_id: userId })
       .update({ backup_codes: JSON.stringify(backupCodes), updated_at: db.fn.now() });
   }
+
+  static async updateUsername(userId, username, trx) {
+    return AuthModel._db(trx)('users')
+      .where({ id: userId })
+      .update({ username, updated_at: db.fn.now() });
+  }
 }

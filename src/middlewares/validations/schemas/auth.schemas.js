@@ -59,4 +59,8 @@ export default class AuthSchemas {
     ).required(),
     access_token: Joi.string().min(1).required(),
   });
+
+  LogoutScheme = Joi.object({
+    refresh_token: Joi.string().hex().length(64).required(),
+  });
 }

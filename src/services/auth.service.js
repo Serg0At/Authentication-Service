@@ -499,6 +499,28 @@ export default class AuthService {
     };
   }
 
+  static async logout({ refreshToken, userAgent }) {
+    const session = await redisBreaker.fire(() => redisOps.getRefreshToken(refreshToken));
+    if (!session) {
+      const err = new Error('Invalid or expired refresh token');
+      err.name = 'UnauthorizedError';
+      throw err;
+    }
+
+    const uaHash = CryptoUtil.hashUA(userAgent);
+
+    await Promise.all([
+      redisBreaker.fire(() => redisOps.deleteRefreshToken(refreshToken)),
+      redisBreaker.fire(() => getRedis().del(`device_token:${session.user_id}:${uaHash}`)),
+      redisBreaker.fire(() => getRedis().srem(`user_sessions:${session.user_id}`, uaHash)),
+    ]);
+
+    return {
+      success: true,
+      message: 'Logged out successfully',
+    };
+  }
+
   static async verifyEmail({ token }) {
     const redisKey = `verify_token:${token}`;
     const raw = await redisBreaker.fire(() => getRedis().get(redisKey));

@@ -189,6 +189,28 @@ export default class AuthController {
     }
   }
 
+  static async logout(call, callback) {
+    const meta = { method: 'Logout' };
+    try {
+      const { refresh_token } = call.request;
+      const userAgent = call.metadata.get('user-agent')[0] || 'unknown';
+
+      const { error: validationError } = Validation.validateLogout({ refresh_token });
+      if (validationError) {
+        return ErrorHandler.invalidArgument(callback, validationError.details.map(d => d.message).join('; '), meta);
+      }
+
+      const result = await AuthService.logout({
+        refreshToken: refresh_token,
+        userAgent,
+      });
+
+      SuccessHandler.ok(callback, result, meta);
+    } catch (error) {
+      ErrorHandler.handle(callback, error, meta);
+    }
+  }
+
   static async verifyEmail(call, callback) {
     const meta = { method: 'VerifyEmail' };
     try {

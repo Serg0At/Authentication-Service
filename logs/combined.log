@@ -1105,3 +1105,101 @@
 2026-03-01 16:55:02 [info] [auth-service] gRPC shutdown signal received
 2026-03-01 18:36:43 [error] [auth-service] Redis connection failed 
 2026-03-01 18:36:47 [error] [auth-service] Redis connection failed 
+2026-03-02 01:32:13 [info] [auth-service] Redis connected
+2026-03-02 01:32:13 [info] [auth-service] Kafka connected
+2026-03-02 01:32:13 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-02 01:32:13 [info] [auth-service] gRPC server started on 50051
+2026-03-02 01:32:13 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-02 01:33:46 [info] [auth-service] [RegisterUser] User registered {"userId":"2","email":"serg114454@gmail.com"}
+2026-03-02 01:35:43 [info] [auth-service] Redis connected
+2026-03-02 01:36:53 [info] [auth-service] Redis connected
+2026-03-02 01:36:53 [info] [auth-service] Kafka connected
+2026-03-02 01:36:53 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-02 01:36:53 [info] [auth-service] gRPC server started on 50051
+2026-03-02 01:36:53 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-02 01:37:00 [info] [auth-service] [RegisterUser] User registered {"userId":"3","email":"serg114454@gmail.com"}
+2026-03-02 01:43:04 [info] [auth-service] Redis connected
+2026-03-03 00:39:21 [info] [auth-service] Redis connected
+2026-03-03 00:39:26 [info] [auth-service] Kafka connected
+2026-03-03 00:39:26 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-03 00:39:26 [info] [auth-service] RabbitMQ consumer connected, listening for user.username_changed
+2026-03-03 00:39:26 [info] [auth-service] gRPC server started on 50051
+2026-03-03 00:39:26 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-03 00:41:25 [info] [auth-service] Redis connected
+2026-03-03 00:41:25 [info] [auth-service] Kafka connected
+2026-03-03 00:41:25 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-03 00:41:25 [info] [auth-service] RabbitMQ consumer connected, listening for user.username_changed
+2026-03-03 00:41:25 [info] [auth-service] gRPC server started on 50051
+2026-03-03 00:41:25 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-03 00:41:35 [info] [auth-service] Redis connected
+2026-03-03 00:41:35 [info] [auth-service] Kafka connected
+2026-03-03 00:41:35 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-03 00:41:36 [info] [auth-service] RabbitMQ consumer connected, listening for user.username_changed
+2026-03-03 00:41:36 [info] [auth-service] gRPC server started on 50051
+2026-03-03 00:41:36 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-03 00:43:56 [info] [auth-service] Redis connected
+2026-03-03 00:43:56 [info] [auth-service] Kafka connected
+2026-03-03 00:43:56 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-03 00:43:56 [info] [auth-service] RabbitMQ consumer connected, listening for user.username_changed
+2026-03-03 00:43:56 [info] [auth-service] gRPC server started on 50051
+2026-03-03 00:43:56 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-03 00:47:20 [info] [auth-service] gRPC shutdown signal received
+2026-03-03 14:52:15 [info] [auth-service] Redis connected
+2026-03-03 14:52:19 [info] [auth-service] Kafka connected
+2026-03-03 14:52:19 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-03 14:52:19 [info] [auth-service] RabbitMQ consumer connected, listening for user.username_changed
+2026-03-03 14:52:19 [info] [auth-service] gRPC server started on 50051
+2026-03-03 14:52:19 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-03 14:57:43 [info] [auth-service] [RegisterUser] User registered {"userId":"1","email":"test@example.com"}
+2026-03-03 14:57:58 [info] [auth-service] [RegisterUser] User registered {"userId":"2","email":"serg114454@gmail.com"}
+2026-03-03 15:03:09 [info] [auth-service] Redis connected
+2026-03-03 15:03:09 [info] [auth-service] Kafka connected
+2026-03-03 15:03:09 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-03 15:03:09 [info] [auth-service] RabbitMQ consumer connected, listening for user.username_changed
+2026-03-03 15:03:09 [info] [auth-service] gRPC server started on 50051
+2026-03-03 15:03:09 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-03 15:03:54 [info] [auth-service] Redis connected
+2026-03-03 15:03:54 [info] [auth-service] Kafka connected
+2026-03-03 15:03:54 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-03 15:03:54 [info] [auth-service] RabbitMQ consumer connected, listening for user.username_changed
+2026-03-03 15:03:54 [info] [auth-service] gRPC server started on 50051
+2026-03-03 15:03:54 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-03 15:04:08 [info] [auth-service] Redis connected
+2026-03-03 15:04:08 [info] [auth-service] Kafka connected
+2026-03-03 15:04:08 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-03 15:04:08 [info] [auth-service] RabbitMQ consumer connected, listening for user.username_changed
+2026-03-03 15:04:08 [info] [auth-service] gRPC server started on 50051
+2026-03-03 15:04:08 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-03 15:04:27 [info] [auth-service] Redis connected
+2026-03-03 15:04:27 [info] [auth-service] Kafka connected
+2026-03-03 15:04:27 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-03 15:04:27 [info] [auth-service] RabbitMQ consumer connected, listening for user.username_changed
+2026-03-03 15:04:27 [info] [auth-service] gRPC server started on 50051
+2026-03-03 15:04:27 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-03 15:04:40 [info] [auth-service] Redis connected
+2026-03-03 15:04:40 [info] [auth-service] Kafka connected
+2026-03-03 15:04:40 [info] [auth-service] RabbitMQ connected, topology ready
+2026-03-03 15:04:40 [info] [auth-service] RabbitMQ consumer connected, listening for user.username_changed
+2026-03-03 15:04:40 [info] [auth-service] gRPC server started on 50051
+2026-03-03 15:04:40 [info] [auth-service] ========== AUTH SERVICE IS READY ==========
+2026-03-03 15:08:26 [error] [auth-service] [RegisterUser] ConflictError: Email is already in use
+    at AuthService.register (file:///home/sergatoyan/Workspace/microservices-arbex/auth-service/src/services/auth.service.js:27:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.registerUser (file:///home/sergatoyan/Workspace/microservices-arbex/auth-service/src/controllers/auth.controller.js:17:22) {"errorName":"ConflictError","grpcCode":6}
+2026-03-03 15:09:17 [info] [auth-service] [VerifyEmail] Email verified {}
+2026-03-03 15:10:25 [error] [auth-service] [VerifyEmail] Error: Verification link expired or invalid
+    at AuthService.verifyEmail (file:///home/sergatoyan/Workspace/microservices-arbex/auth-service/src/services/auth.service.js:528:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verifyEmail (file:///home/sergatoyan/Workspace/microservices-arbex/auth-service/src/controllers/auth.controller.js:224:22) {"errorName":"Error","grpcCode":13}
+2026-03-03 15:15:45 [info] [auth-service] [RegisterUser] User registered {"userId":"3","email":"serg114454@gmail.com"}
+2026-03-03 15:16:45 [warn] [auth-service] [VerifyEmail] "token" must only contain hexadecimal characters; "token" length must be 64 characters long {"grpcCode":3}
+2026-03-03 15:16:55 [info] [auth-service] [VerifyEmail] Email verified {}
+2026-03-03 15:48:02 [warn] [auth-service] RabbitMQ connection closed, scheduling reconnect
+2026-03-03 15:48:02 [warn] [auth-service] RabbitMQ consumer connection closed, scheduling reconnect
+2026-03-03 15:48:05 [warn] [auth-service] RabbitMQ reconnect failed, retry #2 in 6000ms {"error":""}
+2026-03-03 15:48:05 [warn] [auth-service] RabbitMQ consumer reconnect failed, retry #2 in 6000ms {"error":""}
+2026-03-03 15:48:11 [warn] [auth-service] RabbitMQ reconnect failed, retry #3 in 9000ms {"error":""}
+2026-03-03 15:48:11 [warn] [auth-service] RabbitMQ consumer reconnect failed, retry #3 in 9000ms {"error":""}
+2026-03-03 15:48:20 [warn] [auth-service] RabbitMQ reconnect failed, retry #4 in 12000ms {"error":""}
+2026-03-03 15:48:20 [warn] [auth-service] RabbitMQ consumer reconnect failed, retry #4 in 12000ms {"error":""}
+2026-03-03 15:48:26 [error] [auth-service] Redis connection failed 

@@ -1,7 +1,7 @@
 import CryptoUtil from '../utils/crypto.util.js';
 import JwtUtil from '../utils/jwt.util.js';
 import Randomizer from '../utils/randomizer.util.js';
-import { publishAuthEvent, publishToNotification } from '../rabbit/publisher.js';
+import { publishAuthEvent } from '../rabbit/publisher.js';
 import { getRedis, redisOps } from '../redis/redisClient.js';
 import config from '../config/variables.config.js';
 import db from '../config/db.js';
@@ -46,7 +46,7 @@ export default class OAuthService {
       throw new Error('Failed to fetch user info from Google');
     }
 
-    const { id: externalId, email, picture } = await userInfoRes.json();
+    const { id: externalId, email } = await userInfoRes.json();
 
     // 3. Encrypt Google tokens before storing
     const encryptedAccessToken = CryptoUtil.encrypt(googleAccessToken, config.SECURITY.ENCRYPTION_KEY);
@@ -92,7 +92,6 @@ export default class OAuthService {
           user = await AuthModel.create({
             email,
             username: Randomizer.generateRandomUsername(),
-            avatar_url: picture || null,
             role: 0,
             is_active: true,
           }, trx);
@@ -131,7 +130,7 @@ export default class OAuthService {
         ts,
       });
     } else {
-      await publishToNotification(config.RABBITMQ.ROUTING_KEYS.USER_LOGGED_IN, {
+      await publishAuthEvent(config.RABBITMQ.ROUTING_KEYS.USER_LOGGED_IN, {
         user_id: user.id,
         device: userAgent,
         ts,

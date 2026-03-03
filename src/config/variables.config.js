@@ -115,27 +115,13 @@ const config = {
     USER: process.env.RABBITMQ_USER,
     PASSWORD: process.env.RABBITMQ_PASSWORD,
 
-    EXCHANGES: {
-      SUBSCRIPTION: {
-        NAME: process.env.RMQ_EXCHANGE_SUBSCRIPTION || 'auth-events.subscription',
-        TYPE: process.env.RMQ_EXCHANGE_SUBSCRIPTION_TYPE || 'fanout',
-        QUEUE: 'auth-events.subscription.queue',
-      },
-      NOTIFICATION: {
-        NAME: process.env.RMQ_EXCHANGE_NOTIFICATION || 'auth-events.notification',
-        TYPE: process.env.RMQ_EXCHANGE_NOTIFICATION_TYPE || 'topic',
-        QUEUE: 'auth-events.notification.queue',
-        BIND_PATTERN: 'user.*',
-      },
-      DLX: {
-        NAME: process.env.RMQ_EXCHANGE_DLX || 'auth-events.dlx',
-        TYPE: 'topic',
-      },
+    EXCHANGE: {
+      NAME: process.env.RMQ_EXCHANGE || 'auth-events',
+      TYPE: process.env.RMQ_EXCHANGE_TYPE || 'topic',
     },
 
-    DLQ: {
-      SUBSCRIPTION: 'auth-events.subscription.dlq',
-      NOTIFICATION: 'auth-events.notification.dlq',
+    QUEUES: {
+      USERNAME_SYNC: 'auth-service.username-sync.queue',
     },
 
     RETRY: {
@@ -152,6 +138,7 @@ const config = {
       USER_VERIFY_EMAIL: 'user.verify_email',
       USER_FORGOT_PASSWORD: 'user.forgot_password',
       USER_2FA_ENABLED: 'user.2fa_enabled',
+      USER_USERNAME_CHANGED: 'user.username_changed',
     },
   },
 

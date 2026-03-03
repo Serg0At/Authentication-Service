@@ -376,3 +376,12 @@
     at TLSWrap.onStreamRead (node:internal/stream_base_commons:189:23) {"errorName":"error","grpcCode":13}
 2026-03-01 18:36:43 [error] [auth-service] Redis connection failed 
 2026-03-01 18:36:47 [error] [auth-service] Redis connection failed 
+2026-03-03 15:08:26 [error] [auth-service] [RegisterUser] ConflictError: Email is already in use
+    at AuthService.register (file:///home/sergatoyan/Workspace/microservices-arbex/auth-service/src/services/auth.service.js:27:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.registerUser (file:///home/sergatoyan/Workspace/microservices-arbex/auth-service/src/controllers/auth.controller.js:17:22) {"errorName":"ConflictError","grpcCode":6}
+2026-03-03 15:10:25 [error] [auth-service] [VerifyEmail] Error: Verification link expired or invalid
+    at AuthService.verifyEmail (file:///home/sergatoyan/Workspace/microservices-arbex/auth-service/src/services/auth.service.js:528:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async AuthController.verifyEmail (file:///home/sergatoyan/Workspace/microservices-arbex/auth-service/src/controllers/auth.controller.js:224:22) {"errorName":"Error","grpcCode":13}
+2026-03-03 15:48:26 [error] [auth-service] Redis connection failed 

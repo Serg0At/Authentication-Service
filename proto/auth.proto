@@ -23,6 +23,7 @@ service AuthService {
   rpc Verify2FA(Verify2FARequest) returns (Verify2FAResponse);
   rpc VerifyEmail(VerifyEmailRequest) returns (VerifyEmailResponse);
   rpc RefreshTokens(RefreshTokensRequest) returns (RefreshTokensResponse);
+  rpc Logout(LogoutRequest) returns (LogoutResponse);
 }
 
 
@@ -229,4 +230,16 @@ message RefreshTokensRequest {
 message RefreshTokensResponse {
   string access_token = 1;
   string refresh_token = 2;
+}
+
+
+/* ---- Logout ---- */
+
+message LogoutRequest {
+  string refresh_token = 1;
+}
+
+message LogoutResponse {
+  bool success = 1;
+  string message = 2;
 }

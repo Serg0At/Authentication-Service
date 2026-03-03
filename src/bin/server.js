@@ -26,6 +26,7 @@ export const startGrpc = async () => {
     ChangePassword: AuthController.changePassword.bind(AuthController),
     Setup2FA: AuthController.setup2FA.bind(AuthController),
     Verify2FA: AuthController.verify2FA.bind(AuthController),
+    Logout: AuthController.logout.bind(AuthController),
   });
 
   const port = process.env.SERVICE_PORT || 50051;

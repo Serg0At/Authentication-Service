@@ -3,15 +3,17 @@ import 'dotenv/config';
 import config from '../config/variables.config.js';
 import logger from '../utils/logger.util.js';
 
-const { EXCHANGES, DLQ, RETRY } = config.RABBITMQ;
+const { EXCHANGE, RETRY } = config.RABBITMQ;
 
 let connection = null;
 let channel = null;
 let reconnecting = false;
 
 /**
- * Connect to RabbitMQ, create channel, and set up the full topology:
- * main exchanges → main queues (with DLX args) → DLX exchange → DLQ queues.
+ * Connect to RabbitMQ, create channel, and assert the auth-events topic exchange.
+ *
+ * Consumers (notification-service, user-service, etc.) declare and bind
+ * their own queues to this exchange.
  */
 export const initRabbit = async () => {
   if (channel) return channel;
@@ -19,38 +21,8 @@ export const initRabbit = async () => {
   connection = await amqp.connect(process.env.RABBIT_URL);
   channel = await connection.createChannel();
 
-  // ── DLX exchange ─────────────────────────────────
-  await channel.assertExchange(EXCHANGES.DLX.NAME, EXCHANGES.DLX.TYPE, { durable: true });
-
-  // ── DLQ queues bound to DLX ──────────────────────
-  await channel.assertQueue(DLQ.SUBSCRIPTION, { durable: true });
-  await channel.bindQueue(DLQ.SUBSCRIPTION, EXCHANGES.DLX.NAME, 'subscription.#');
-
-  await channel.assertQueue(DLQ.NOTIFICATION, { durable: true });
-  await channel.bindQueue(DLQ.NOTIFICATION, EXCHANGES.DLX.NAME, 'notification.#');
-
-  // ── Subscription exchange + queue ────────────────
-  await channel.assertExchange(EXCHANGES.SUBSCRIPTION.NAME, EXCHANGES.SUBSCRIPTION.TYPE, { durable: true });
-  await channel.assertQueue(EXCHANGES.SUBSCRIPTION.QUEUE, {
-    durable: true,
-    arguments: {
-      'x-dead-letter-exchange': EXCHANGES.DLX.NAME,
-      'x-dead-letter-routing-key': 'subscription.rejected',
-    },
-  });
-  // Fanout ignores routing key, but binding is still required
-  await channel.bindQueue(EXCHANGES.SUBSCRIPTION.QUEUE, EXCHANGES.SUBSCRIPTION.NAME, '');
-
-  // ── Notification exchange + queue ────────────────
-  await channel.assertExchange(EXCHANGES.NOTIFICATION.NAME, EXCHANGES.NOTIFICATION.TYPE, { durable: true });
-  await channel.assertQueue(EXCHANGES.NOTIFICATION.QUEUE, {
-    durable: true,
-    arguments: {
-      'x-dead-letter-exchange': EXCHANGES.DLX.NAME,
-      'x-dead-letter-routing-key': 'notification.rejected',
-    },
-  });
-  await channel.bindQueue(EXCHANGES.NOTIFICATION.QUEUE, EXCHANGES.NOTIFICATION.NAME, EXCHANGES.NOTIFICATION.BIND_PATTERN);
+  // ── Main auth-events exchange (topic) ──────────
+  await channel.assertExchange(EXCHANGE.NAME, EXCHANGE.TYPE, { durable: true });
 
   // ── Connection recovery ──────────────────────────
   connection.on('error', (err) => {
@@ -106,29 +78,11 @@ const buildMessage = (payload) => ({
 });
 
 /**
- * Publish to the subscription exchange (fanout).
- */
-export const publishToSubscription = async (routingKey, payload) => {
-  if (!channel) throw new Error('Rabbit channel not initialized');
-  const msg = buildMessage(payload);
-  channel.publish(EXCHANGES.SUBSCRIPTION.NAME, routingKey, msg.content, msg.options);
-  logger.debug('Published to subscription exchange', { routingKey });
-};
-
-/**
- * Publish to the notification exchange (topic).
- */
-export const publishToNotification = async (routingKey, payload) => {
-  if (!channel) throw new Error('Rabbit channel not initialized');
-  const msg = buildMessage(payload);
-  channel.publish(EXCHANGES.NOTIFICATION.NAME, routingKey, msg.content, msg.options);
-  logger.debug('Published to notification exchange', { routingKey });
-};
-
-/**
- * Publish to both subscription and notification exchanges.
+ * Publish an event to the auth-events topic exchange.
  */
 export const publishAuthEvent = async (routingKey, payload) => {
-  await publishToSubscription(routingKey, payload);
-  await publishToNotification(routingKey, payload);
+  if (!channel) throw new Error('Rabbit channel not initialized');
+  const msg = buildMessage(payload);
+  channel.publish(EXCHANGE.NAME, routingKey, msg.content, msg.options);
+  logger.debug('Published to auth-events exchange', { routingKey });
 };

@@ -12,7 +12,6 @@ function up(knex) {
         t.smallint("role").notNullable().defaultTo(0);
         t.check('role IN (0, 1)');
         t.boolean("is_active").notNullable().defaultTo(false);
-        t.text("avatar_url");
         t.string("device_fingerprint", 255).nullable();
         t.timestamp("last_login", { useTz: true });
         t.timestamp("created_at", { useTz: true }).notNullable().defaultTo(knex.fn.now());

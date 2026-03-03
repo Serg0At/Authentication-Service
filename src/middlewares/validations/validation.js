@@ -42,4 +42,8 @@ export default class Validation {
   static validateVerify2FA(data) {
     return auth.Verify2FAScheme.validate(data, { abortEarly: false });
   }
+
+  static validateLogout(data) {
+    return auth.LogoutScheme.validate(data, { abortEarly: false });
+  }
 }

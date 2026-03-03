@@ -39,7 +39,6 @@ const mockRedisClient = {
 };
 
 const mockPublishAuthEvent = jest.fn();
-const mockPublishToNotification = jest.fn();
 
 const mockDb = jest.fn();
 mockDb.transaction = jest.fn((cb) => cb('trx'));
@@ -72,7 +71,6 @@ jest.unstable_mockModule('../../src/redis/redisClient.js', () => ({
 
 jest.unstable_mockModule('../../src/rabbit/publisher.js', () => ({
   publishAuthEvent: mockPublishAuthEvent,
-  publishToNotification: mockPublishToNotification,
 }));
 
 jest.unstable_mockModule('../../src/config/db.js', () => ({
@@ -252,7 +250,7 @@ describe('OAuthService.oidcLogin', () => {
 
     await OAuthService.oidcLogin(loginData);
 
-    expect(mockPublishToNotification).toHaveBeenCalledWith(
+    expect(mockPublishAuthEvent).toHaveBeenCalledWith(
       'user.logged_in',
       expect.objectContaining({ user_id: 1 }),
     );
