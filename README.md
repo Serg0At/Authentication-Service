@@ -1,15 +1,18 @@
 # Auth Service
 
-Authentication and authorization microservice for the Arbitrage Scanner platform. Handles user registration, login, token management, 2FA, OAuth (Google OIDC), and email verification.
+Authentication and authorization microservice built with Node.js and gRPC. Part of a larger microservices architecture with a GraphQL gateway as the consumer. Handles user registration, login, token management, 2FA (TOTP), OAuth (Google OIDC), password reset, and email verification.
 
 ## Tech Stack
 
-- **Runtime:** Node.js 20
-- **Transport:** gRPC (via `@grpc/grpc-js`)
-- **Database:** PostgreSQL (NeonDB) with Knex.js
-- **Cache/Sessions:** Redis (ioredis)
-- **Message Brokers:** RabbitMQ (amqplib) + Kafka (kafkajs)
-- **Auth:** JWT (RS256 access + HS256 refresh), bcrypt, TOTP 2FA
+- **Runtime:** Node.js (ES modules)
+- **Transport:** gRPC (`@grpc/grpc-js`, `@grpc/proto-loader`)
+- **Database:** PostgreSQL via Knex.js (tables: `users`, `user_2fa`, `oauth_accounts`)
+- **Cache/Sessions:** Redis (ioredis) — sessions, refresh tokens, reset codes, email verification
+- **Messaging:** RabbitMQ (amqplib) — topic exchange for notifications, fanout for subscriptions
+- **Auth:** RS256 JWT access tokens, opaque refresh tokens (stored in Redis, 30-day TTL)
+- **2FA:** TOTP via `otplib`, QR codes via `qrcode`
+- **Resilience:** Circuit breakers via `opossum`
+- **Validation:** Joi schemas
 - **Logging:** Winston
 
 ## Architecture
@@ -17,14 +20,13 @@ Authentication and authorization microservice for the Arbitrage Scanner platform
 ```
 GraphQL Gateway
       |
-      | gRPC (:50053)
+      | gRPC (:50051)
       v
  Auth Service
       |
-      ├── PostgreSQL   (users, credentials)
-      ├── Redis        (sessions, token blacklist, verification codes)
-      ├── RabbitMQ     (auth events → subscription-service, notification-service)
-      └── Kafka        (event streaming)
+      ├── PostgreSQL   (users, 2FA secrets, OAuth accounts)
+      ├── Redis        (sessions, refresh tokens, reset codes, verification tokens)
+      └── RabbitMQ     (auth events → notification-service, subscription-service, user-service)
 ```
 
 ## gRPC API
@@ -33,36 +35,42 @@ Defined in `proto/auth.proto`:
 
 | RPC | Description |
 |-----|-------------|
-| `RegisterUser` | Create account, send verification email |
+| `RegisterUser` | Create account with email/username/password |
+| `LoginUser` | Email or username + password login (returns `requires_2fa` if enabled) |
+| `OIDCLogin` | Google OAuth login via authorization code |
+| `ForgotPassword` | Send password reset code to email |
+| `VerifyResetCode` | Validate reset code without consuming it |
+| `ResetPassword` | Reset password using email + code (unauthenticated) |
+| `ChangePassword` | Change password with old password (authenticated) |
+| `Setup2FA` | Generate TOTP QR code, secret, and backup codes |
+| `Verify2FA` | Validate TOTP code, returns tokens with `acr: '2fa'` claim |
 | `VerifyEmail` | Confirm email via magic link token |
-| `LoginUser` | Email/password login |
-| `OIDCLogin` | Google OAuth login |
-| `ForgotPassword` | Send password reset code |
-| `ResetPassword` | Change password with old password |
-| `Setup2FA` | Generate TOTP QR code and backup codes |
-| `Verify2FA` | Validate TOTP code |
-| `ValidateAccessToken` | Verify JWT and return user info |
 | `RefreshTokens` | Rotate access + refresh tokens |
+| `Logout` | Revoke refresh token and end session |
 
 ## Project Structure
 
 ```
 src/
-├── app.js                  # Entry point — init Redis, Kafka, RabbitMQ, gRPC
+├── app.js              # Entry point — boots Redis, RabbitMQ, DB, then gRPC server
 ├── bin/
-│   ├── server.js           # gRPC server setup and graceful shutdown
-│   └── loader.js           # Proto file loader
+│   ├── server.js       # gRPC server setup and graceful shutdown
+│   └── loader.js       # Proto file loader (keepCase: true)
 ├── config/
-│   ├── variables.config.js # Centralized env config
-│   └── knex.config.js      # Database connection config
-├── controllers/            # gRPC request handlers
-├── services/               # Business logic
-├── models/                 # Data access layer
-├── middlewares/             # Auth, rate limiting, validation
-├── kafka/                  # Kafka producer
-├── rabbit/                 # RabbitMQ publisher (fanout + topic exchanges, DLX/DLQ)
-├── redis/                  # Redis client and session/cache operations
-└── utils/                  # JWT, crypto, logger, error/success handlers
+│   ├── variables.config.js  # Centralized env config
+│   ├── db.js                # Database connection
+│   └── knex.config.js       # Knex configuration
+├── controllers/        # gRPC handlers (call, callback pattern)
+├── services/           # Business logic (auth, oauth, twofa)
+├── models/             # Knex query builders (Auth, OAuth, TwoFa)
+├── middlewares/
+│   ├── schemas/        # Joi validation schemas
+│   └── validation.js   # Validation middleware
+├── rabbit/             # RabbitMQ publisher
+├── redis/              # Redis client + operations
+└── utils/              # JWT, crypto, error-handler, success-handler, circuit-breaker, logger
+proto/auth.proto        # All RPC definitions
+migrations/             # create_tables.js / drop_tables.js
 ```
 
 ## Getting Started
@@ -75,17 +83,14 @@ src/
 ### 1. Clone and install
 
 ```bash
-git clone git@gitlab.coduretech.dev:arbitrage-scanner/back-end/auth-service.git
+git clone <repository-url>
 cd auth-service
 npm install
 ```
 
 ### 2. Configure environment
 
-```bash
-cp .env.example .env
-# Fill in your PostgreSQL, Redis, RabbitMQ credentials
-```
+Create a `.env` file with your PostgreSQL, Redis, and RabbitMQ credentials. See `src/config/variables.config.js` for the full list of required environment variables.
 
 ### 3. Start infrastructure
 
@@ -93,29 +98,16 @@ cp .env.example .env
 docker compose up -d
 ```
 
-This starts Redis, RabbitMQ, Kafka, and Zookeeper with healthchecks.
-
-### 4. Run migrations and seed
+### 4. Run migrations
 
 ```bash
 npm run migrate
-npm run seed
 ```
 
 ### 5. Start the service
 
 ```bash
 npm run dev
-```
-
-You should see:
-
-```
-[info] Redis connected
-[info] Kafka connected
-[info] RabbitMQ connected, topology ready
-[info] gRPC server started on 50053
-[info] ========== AUTH SERVICE IS READY ==========
 ```
 
 ## Scripts
@@ -125,31 +117,31 @@ You should see:
 | `npm run dev` | Start with nodemon (development) |
 | `npm start` | Start in production mode |
 | `npm run debug` | Start with Node inspector |
+| `npm run reload` | Kill port 50051 + restart dev |
 | `npm run migrate` | Run database migrations |
 | `npm run migrate-down` | Drop database tables |
-| `npm run seed` | Seed database with initial data |
+| `npm run seed` | Seed database |
+| `npm test` | Run tests (Jest) |
+| `npm run test:watch` | Run tests in watch mode |
 | `npm run lint` | Run ESLint |
+| `npm run lint:fix` | Run ESLint with auto-fix |
 | `npm run format` | Format code with Prettier |
+| `npm run docker:build` | Build Docker image |
+| `npm run compose:up` | Start with Docker Compose |
+| `npm run compose:down` | Stop Docker Compose |
 
-## RabbitMQ Topology
+## RabbitMQ Events
 
-```
-auth-events.subscription (fanout) → auth-events.subscription.queue
-auth-events.notification (topic)  → auth-events.notification.queue (bind: user.*)
-auth-events.dlx (topic)           → *.dlq (dead letter queues)
-```
+Published via `publishAuthEvent(routingKey, payload)`:
 
-### Routing Keys
-
-- `user.registered` — new user signed up
-- `user.logged_in` — user login event
-- `user.password_changed` — password was reset
-- `user.profile_updated` — profile data changed
-- `user.verify_email` — email verification requested
-
-## Environment Variables
-
-See [.env.example](.env.example) for the full list with descriptions.
+| Routing Key | Description |
+|-------------|-------------|
+| `user.registered` | New user signed up |
+| `user.logged_in` | User login event |
+| `user.password_changed` | Password was changed |
+| `user.verify_email` | Email verification requested |
+| `user.forgot_password` | Password reset requested |
+| `user.2fa_enabled` | 2FA was enabled |
 
 ## Author
 
